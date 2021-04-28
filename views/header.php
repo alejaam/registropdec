@@ -23,7 +23,9 @@ require_once 'helpers.php';
 <body>
     <nav class="navbar">
         <div class="container-fluid">
-            <img src="assets/logo_white.png" alt="logo_pdec" class="animate__animated animate__fadeIn d-inline-block align-text-top">
+            <a href="index.php">
+                <img src="assets/logo_white.png" alt="logo_pdec" class="animate__animated animate__fadeIn d-inline-block align-text-top">
+            </a>
         </div>
     </nav>
     <br>

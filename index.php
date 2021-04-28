@@ -9,19 +9,18 @@ include_once 'views/header.php'
                     <h2>Registro</h2>
                 </div>
                 <div class="card-body">
-                    <form action='register.php'>
+                    <form action='register.php' method="post">
                         <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nombre(s)</label>
-                                    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Introduce tu(s) nombre(s)">
+                                    <input type="text" class="form-control" id="name" name="name" pattern="^(?=.{1,40}$)[[a-zA-Z]+(?:[-'\s][á-zA-Z]+)*$" required oninvalid="this.setCustomValidity('Introduce un nombre válido')" aria-describedby="name" placeholder="Introduce tu(s) nombre(s)">
                                 </div>
                             </div>
-
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="lastname" class="form-label">Apellido(s)</label>
-                                    <input type="text" class="form-control" id="lastname" aria-describedby="lastname" placeholder="Apellidos(s)">
+                                    <input type="text" class="form-control" id="lastname" name="lastname" pattern="^(?=.{1,40}$)[[a-zA-Z]+(?:[-'\s][á-zA-Z]+)*$" required oninvalid="this.setCustomValidity('Introduce un apellido válido')" aria-describedby="lastname" placeholder="Apellidos(s)">
                                 </div>
                             </div>
                         </div>
@@ -29,14 +28,13 @@ include_once 'views/header.php'
                             <div class="col-sm-12 col-lg-6">
                                 <div class="mb-3">
                                     <label for="telephone" class="form-label">Teléfono</label>
-                                    <input type="text" class="form-control" id="telephone" aria-describedby="telephone" placeholder="Introduce tu número ej. 5510210478">
+                                    <input type="tel" class="form-control" id="telephone" name="telephone" required aria-describedby="telephone" minlength="10" maxlength="10" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" required oninvalid="this.setCustomValidity('El número se compone de 10 digitos')" placeholder="Introduce tu número ej. 5510210478">
                                 </div>
                             </div>
-
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="red" class="form-label">Red</label>
-                                    <select name="red" id="red" class="form-select" id="red" aria-describedby="red">
+                                    <select class="form-select" id="red" name="red" required aria-describedby="red">
                                         <option selected disabled>
                                             Introduce la red a la que perteneces
                                         </option>
@@ -53,34 +51,28 @@ include_once 'views/header.php'
                         </div>
                         <div class="row">
                             <div class="col">
-                                <label for="red" class="form-label">Dia</label>
-                                <select name="red" id="red" class="form-select" id="red" aria-describedby="red">
+                                <label for="day" class="form-label">Dia</label>
+                                <select class="form-select" id="day" name="day" required aria-describedby="day">
                                     <option selected disabled>
                                         Introduce el dia en el que asistiras
                                     </option>
                                     <?php
-
                                     foreach ($servicios as $servicio) {
                                         $date =  new DateTime($servicio);
-
-                                        echo '<option value="' . $servicio . ' ">' .
-                                            date($servicio) .
-                                            '</option>';
+                                        echo '<option value="' . $servicio . ' ">' . date($servicio) . '</option>';
                                     }
                                     ?>
                                 </select>
                             </div>
                             <div class="col">
-                                <label for="red" class="form-label">Horario</label>
-                                <select name="red" id="red" class="form-select" id="red" aria-describedby="red">
+                                <label for="schedule" class="form-label">Horario</label>
+                                <select class="form-select" id="schedule" name="schedule" required aria-describedby="red">
                                     <option selected disabled>
                                         Introduce el horario en el que asistiras
                                     </option>
                                     <?php
                                     foreach ($horarios as $horario) {
-                                        echo '<option value="' . $horario . ' ">' .
-                                            $horario . ' A.M
-                                                </option>';
+                                        echo '<option value="' . $horario . ' ">' . $horario . ' A.M </option>';
                                     }
                                     ?>
                                 </select>
@@ -89,7 +81,7 @@ include_once 'views/header.php'
                         <br>
                         <div class="row text-center">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary ">Enviar</button>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                         </div>
                     </form>
