@@ -1,0 +1,36 @@
+body {
+    /* padding: 50px; */
+}
+
+nav {
+    background-color: #002e43;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #002e43 !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #002e43 !important;
+    border-color: #002e43 !important;
+    color: white;
+}
+
+#card-header-color {
+    background-color: #002e43;
+    color: white;
+}
+
+img {
+    display: block;
+    max-width: 230px;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+}
