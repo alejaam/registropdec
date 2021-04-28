@@ -20,11 +20,11 @@ require_once 'helpers.php';
     </style>
 </head>
 
-<body>
+<body id="pray_mask">
     <nav class="navbar">
         <div class="container-fluid">
             <a href="index.php">
-                <img src="assets/logo_white.png" alt="logo_pdec" class="animate__animated animate__fadeIn d-inline-block align-text-top">
+                <img src="assets/logo_white.png" alt="logo_pdec" class="animate__animated animate__bounce d-inline-block align-text-top">
             </a>
         </div>
     </nav>
