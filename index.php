@@ -14,6 +14,8 @@ $asistantsSecond = getAsistantsSecond($servicios, $conn);
             <div class="card">
                 <div class="card-header text-center" id="card-header-color">
                     <h2>Registro</h2>
+                    <h5>ASISTENCIA REUNIÓN DOMINICAL PDE CENTRO</h5>
+                    <p>Este formulario tiene como objetivo, confirmar la asistencia del domingo 2 de mayo de 2021, a cualquiera de las reuniones que se llevarán a cabo en los horarios de las 9:00am y 11:00am, en iglesia Punto de Encuentro Centro (el registro es por persona y por el momento no se admiten menores de 12 años de edad).</p>
                 </div>
                 <div class="card-body">
                     <?php
@@ -30,13 +32,13 @@ $asistantsSecond = getAsistantsSecond($servicios, $conn);
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Nombre(s)</label>
-                                        <input type="text" class="form-control" id="name" name="name" pattern="^(?=.{1,40}$)[[a-zA-Z]+(?:[-'\s][á-zA-Z]+)*$" required oninvalid="this.setCustomValidity('Introduce un nombre válido')" aria-describedby="name" placeholder="Introduce tu(s) nombre(s)">
+                                        <input type="text" class="form-control" id="name" name="name" required oninvalid="this.setCustomValidity('Introduce un nombre válido')" aria-describedby="name" placeholder="Introduce tu(s) nombre(s)">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="lastname" class="form-label">Apellido(s)</label>
-                                        <input type="text" class="form-control" id="lastname" name="lastname" pattern="^(?=.{1,40}$)[[a-zA-Z]+(?:[-'\s][á-zA-Z]+)*$" required oninvalid="this.setCustomValidity('Introduce un apellido válido')" aria-describedby="lastname" placeholder="Apellidos(s)">
+                                        <input type="text" class="form-control" id="lastname" name="lastname" required oninvalid="this.setCustomValidity('Introduce un apellido válido')" aria-describedby="lastname" placeholder="Apellidos(s)">
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +46,7 @@ $asistantsSecond = getAsistantsSecond($servicios, $conn);
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="mb-3">
                                         <label for="telephone" class="form-label">Teléfono</label>
-                                        <input type="tel" class="form-control" id="telephone" name="telephone" required aria-describedby="telephone" minlength="10" maxlength="10" pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$" required oninvalid="this.setCustomValidity('El número se compone de 10 digitos')" placeholder="Introduce tu número ej. 5510210478">
+                                        <input type="tel" class="form-control" id="telephone" name="telephone" required aria-describedby="telephone" minlength="10" maxlength="10" required oninvalid="this.setCustomValidity('El número se compone de 10 digitos')" placeholder="Introduce tu número ej. 5510210478">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -88,11 +90,11 @@ $asistantsSecond = getAsistantsSecond($servicios, $conn);
                                         </option>
                                         <?php
                                         foreach ($horarios as $horario) {
-                                            if($asistantsFirst >= 40 && $horario == 9){
+                                            if ($asistantsFirst >= 40 && $horario == 9) {
                                                 echo '<option value="' . $horario . ' " disabled>' . $horario . ' A.M </option>';
-                                            }else if($asistantsSecond >= 40 && $horario == 11){
+                                            } else if ($asistantsSecond >= 40 && $horario == 11) {
                                                 echo '<option value="' . $horario . ' " disabled>' . $horario . ' A.M </option>';
-                                            }else{
+                                            } else {
                                                 echo '<option value="' . $horario . ' ">' . $horario . ' A.M </option>';
                                             }
                                         }
